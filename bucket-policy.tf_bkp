@@ -1,0 +1,6 @@
+
+resource "aws_s3_bucket_policy" "public_read_policy" {
+  bucket = aws_s3_bucket.my-bucket.id
+  policy = file("s3-public-read-policy.json")
+   depends_on = [aws_s3_bucket_public_access_block.public_access]
+}
